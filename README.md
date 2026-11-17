@@ -1,97 +1,143 @@
 # Dataset Narkotika PN Semarang
 
-Dataset untuk Tugas 2 (SubCPMK-2), UTS Temu Kembali Informasi, semester ganjil 2026/2027, Universitas Muhammadiyah Malang.
+Dataset ini disusun untuk memenuhi Tugas 2 (SubCPMK-2), UTS mata kuliah Temu Kembali Informasi, Semester Ganjil 2026/2027, Universitas Muhammadiyah Malang.
 
-## Anggota kelompok
+Dataset berisi dokumen putusan pengadilan dalam perkara narkotika yang diperoleh melalui pengumpulan manual dan proses crawling dari Direktori Putusan Mahkamah Agung Republik Indonesia.
+
+## Anggota Kelompok
 
 | **Nama** | **NIM** |
 |---|---|
 | Hafizh Al Bukhori | 202310370311097 |
 
-Nama repository: **Dataset-Narkotika_097_XXX**.  
-`XXX` disesuaikan dengan tiga digit terakhir NIM anggota kelompok kedua, jika ada. Repository pengumpulan harus bersifat **public**.
+Nama repository: **Dataset-Narkotika_097_XXX**
 
-## Cakupan
+Keterangan: `XXX` disesuaikan dengan tiga digit terakhir NIM anggota kelompok kedua apabila dikerjakan secara berkelompok. Repository pengumpulan diatur dalam bentuk **Public**.
 
-- Pengadilan: **PN Semarang**.
-- Direktori: **Pidana Khusus**; klasifikasi: **Narkotika dan Psikotropika**.
-- Jumlah: **5 putusan pengadilan** dalam format PDF.
-- Tahun putusan: disesuaikan dengan dokumen yang dikumpulkan, dengan rekomendasi rentang tahun 2023–2025.
-- Sumber dokumen: Direktori Putusan Mahkamah Agung Republik Indonesia.
-- Status putusan: putusan yang digunakan tidak boleh berstatus **Berkekuatan Hukum Tetap (BHT)**.
+## Cakupan Dataset
 
-Jumlah 5 putusan mengikuti ketentuan pada poin 2 instruksi tugas. Pada poin 5a dan 5b terdapat penyebutan 50 dokumen dan 50 data putusan. Perbedaan jumlah tersebut perlu dikonfirmasi kepada dosen pengampu.
+- **Pengadilan:** Pengadilan Negeri Semarang.
+- **Direktori:** Pidana Khusus.
+- **Klasifikasi:** Narkotika dan Psikotropika.
+- **Sumber:** Direktori Putusan Mahkamah Agung Republik Indonesia.
+- **Metode akuisisi:** Pengumpulan manual dan crawling.
+- **Format dokumen:** PDF dan TXT.
 
-## Sumber dan pengumpulan
+### 1. Dataset Manual
+
+Dokumen manual merupakan putusan pengadilan yang dikumpulkan melalui pengunduhan langsung dari Direktori Putusan Mahkamah Agung.
+
+- Jumlah dokumen: **5 putusan**.
+- Format: PDF.
+- Lokasi: `Dataset/manual/`.
+
+### 2. Hasil Crawler
+
+Dataset juga dilengkapi dengan dokumen hasil crawling yang digunakan untuk memperluas koleksi dokumen dan mendukung proses pengolahan data.
+
+- Jumlah dokumen PDF: **50 file**.
+- Jumlah dokumen TXT: **50 file**.
+- Lokasi PDF: `Dataset/pdf/`.
+- Lokasi TXT: `Dataset/txt/`.
+
+File PDF merupakan dokumen putusan pengadilan, sedangkan file TXT merupakan hasil ekstraksi teks dari dokumen PDF untuk memudahkan pengolahan dan pengambilan informasi.
+
+Jumlah berkas tersebut merupakan hasil pengumpulan awal. Pemeriksaan kesamaan nomor perkara antara dokumen manual dan hasil crawler dilakukan untuk menghindari duplikasi data.
+
+## Sumber dan Pengumpulan Data
 
 Dokumen putusan diperoleh melalui [Direktori Putusan Mahkamah Agung Republik Indonesia](https://putusan3.mahkamahagung.go.id/direktori.html).
 
-Pengumpulan dilakukan dengan memilih direktori **Pidana Khusus**, klasifikasi **Narkotika dan Psikotropika**, serta **Pengadilan Negeri Semarang**. Dokumen putusan digunakan sebagai sumber data untuk penyusunan dataset dalam domain Temu Kembali Informasi (TKI).
+Pengumpulan dilakukan dengan memilih direktori **Pidana Khusus**, klasifikasi **Narkotika dan Psikotropika**, serta Pengadilan Negeri Semarang.
 
-Dokumen PDF yang dikumpulkan digunakan sebagai sumber utama untuk mengisi ringkasan pada file Overview.xlsx. Informasi nomor perkara, barang bukti, dan amar putusan disesuaikan dengan isi dokumen asli.
+Proses pengumpulan data terdiri dari dua metode:
 
-## Pemeriksaan status putusan
+1. **Pengumpulan manual:** Dokumen putusan diunduh secara langsung melalui halaman detail putusan.
+2. **Crawling:** Dokumen putusan dan hasil ekstraksi teks dikumpulkan melalui proses crawling.
+
+Dokumen PDF digunakan sebagai sumber utama, sedangkan TXT digunakan untuk membantu proses ekstraksi dan pengolahan informasi.
+
+## Pemeriksaan Status Putusan
 
 Sesuai ketentuan tugas, putusan dengan status **Berkekuatan Hukum Tetap (BHT)** tidak digunakan.
 
-Pemeriksaan status dilakukan dengan memperhatikan informasi yang tersedia pada halaman detail putusan di Direktori Putusan Mahkamah Agung. Apabila status tidak dicantumkan secara jelas pada halaman sumber, informasi tersebut tidak disimpulkan sendiri dan perlu dicatat sebagai **Tidak tercantum**.
+Pemeriksaan status dilakukan dengan memperhatikan informasi yang tersedia pada halaman detail putusan di Direktori Putusan Mahkamah Agung.
 
-Keterangan status dalam dataset mengikuti informasi yang benar-benar tersedia pada sumber resmi.
+Apabila status tidak tercantum secara jelas pada halaman sumber, informasi tersebut dicatat sebagai **Tidak tercantum** dan tidak disimpulkan sendiri.
 
-## Struktur repository
+## Struktur Repository
 
 ```text
-Dataset-Narkotika_097_XXX/
+Crawler-project/
 ├── Dataset/
-│   └── Narkotika.zip
+│   ├── manual/
+│   │   ├── 420_Pid.Sus_202...
+│   │   ├── 436_Pid.Sus_202...
+│   │   ├── 450_Pid.Sus_202...
+│   │   ├── 464_Pid.Sus_202...
+│   │   └── 471_Pid.Sus_202...
+│   │
+│   ├── pdf/
+│   │   ├── Putusan_Crawler_01.pdf
+│   │   ├── Putusan_Crawler_02.pdf
+│   │   └── ...
+│   │
+│   └── txt/
+│       ├── Putusan_Crawler_01.txt
+│       ├── Putusan_Crawler_02.txt
+│       └── ...
+│
 ├── Overview/
 │   └── Overview.xlsx
+│
 └── README.md
 ```
 
-File `Dataset/Narkotika.zip` berisi 5 dokumen putusan pengadilan dalam format PDF.
+## Isi Overview.xlsx
 
-File `Overview/Overview.xlsx` berisi ringkasan informasi dari 5 putusan yang dikumpulkan.
+File `Overview/Overview.xlsx` digunakan untuk menyajikan ringkasan informasi dari dokumen putusan pengadilan.
 
-## Isi Excel
+Overview menggunakan lima kolom utama sesuai ketentuan tugas:
 
-Lembar **Overview** memuat 5 baris data putusan dengan lima kolom utama sesuai ketentuan tugas:
-
-| **Kolom** | **Isi** |
+| **Kolom** | **Keterangan** |
 |---|---|
-| No | Nomor urut putusan |
+| No | Nomor urut data putusan |
 | No Putusan | Identitas resmi nomor perkara |
-| Lembaga Peradilan | Pengadilan Negeri Semarang |
+| Lembaga Peradilan | Nama pengadilan yang mengeluarkan putusan |
 | Barang Bukti | Rincian barang bukti berdasarkan dokumen putusan |
-| Amar Putusan | Isi amar putusan berdasarkan bagian MENGADILI pada PDF asli |
+| Amar Putusan | Isi amar putusan pada bagian MENGADILI |
 
-Kolom Barang Bukti dan Amar Putusan memuat informasi sesuai dokumen sumber. Teks disusun agar mudah dibaca dan dicocokkan dengan PDF asli.
+Data manual dan hasil crawler disusun dalam tabel yang sama setelah dilakukan pemeriksaan nomor perkara dan kesesuaian informasi.
 
-## Penyusunan ringkasan
+## Penyusunan Ringkasan
 
-Informasi barang bukti diambil dari bagian penetapan barang bukti dalam amar putusan. Informasi amar putusan diambil dari bagian **MENGADILI** pada dokumen PDF.
+Informasi pada Overview disusun berdasarkan isi dokumen putusan asli.
 
-Penulisan ringkasan mempertahankan substansi informasi dari dokumen asli, termasuk nama, nomor perkara, jenis barang bukti, jumlah, berat, serta amar pidana yang dijatuhkan.
+- **Nomor Putusan:** Diambil dari identitas perkara pada dokumen.
+- **Lembaga Peradilan:** Diambil dari informasi pengadilan yang menangani perkara.
+- **Barang Bukti:** Diambil dari bagian penetapan barang bukti dalam amar putusan.
+- **Amar Putusan:** Diambil dari bagian MENGADILI pada dokumen putusan.
 
-Ringkasan dalam Excel digunakan untuk memudahkan penelusuran dan pencocokan informasi. Dokumen PDF asli tetap menjadi sumber utama apabila diperlukan pemeriksaan lebih lanjut.
+File TXT hasil crawler digunakan untuk membantu proses pengambilan informasi secara otomatis. Hasil ekstraksi tetap perlu diperiksa kembali menggunakan PDF asli untuk memastikan kesesuaian informasi.
 
-Dataset ini merupakan kumpulan dokumen untuk keperluan penugasan Temu Kembali Informasi, bukan sampel acak yang mewakili seluruh perkara narkotika di Pengadilan Negeri Semarang.
+Penulisan ringkasan mempertahankan substansi dokumen sumber, termasuk nama terdakwa, nomor perkara, jenis barang bukti, jumlah, berat, dan amar pidana yang dijatuhkan.
 
-## Cara menggunakan
+## Cara Menggunakan Dataset
 
-1. Unduh file `Dataset/Narkotika.zip`.
-2. Ekstrak ZIP untuk memperoleh 5 dokumen PDF putusan pengadilan.
-3. Buka `Overview/Overview.xlsx` untuk melihat ringkasan informasi setiap putusan.
-4. Cocokkan nomor putusan dan informasi lainnya dengan dokumen PDF asli.
-5. Gunakan dokumen dan ringkasan tersebut untuk keperluan pembelajaran serta eksperimen Temu Kembali Informasi.
+1. Buka folder `Dataset/manual/` untuk melihat dokumen putusan yang dikumpulkan secara manual.
+2. Buka folder `Dataset/pdf/` untuk melihat dokumen putusan hasil crawling.
+3. Buka folder `Dataset/txt/` untuk mengakses hasil ekstraksi teks.
+4. Buka `Overview/Overview.xlsx` untuk melihat ringkasan informasi putusan.
+5. Cocokkan informasi pada Overview dengan dokumen PDF asli apabila diperlukan.
 
-## Tujuan penggunaan dataset
+## Tujuan Penggunaan Dataset
 
-Dataset ini disusun untuk memenuhi penugasan Tugas 2 (SubCPMK-2) pada mata kuliah Temu Kembali Informasi, Universitas Muhammadiyah Malang.
+Dataset ini digunakan sebagai bahan pembelajaran dalam domain **Temu Kembali Informasi (TKI)**, khususnya untuk memahami proses akuisisi dokumen, pengelolaan koleksi dokumen hukum, ekstraksi informasi, serta persiapan data untuk sistem pencarian informasi.
 
-Dataset dapat digunakan sebagai bahan pembelajaran untuk memahami proses akuisisi, pengelolaan, dan representasi dokumen hukum sebagai sumber informasi yang dapat dimanfaatkan dalam sistem Temu Kembali Informasi.
+Dataset ini juga dapat dimanfaatkan sebagai bahan eksperimen dalam pengembangan sistem pencarian dokumen putusan pengadilan.
 
 ---
 
-**Universitas Muhammadiyah Malang**  
+**Universitas Muhammadiyah Malang**
+
 **Temu Kembali Informasi — Semester Ganjil 2026/2027**
